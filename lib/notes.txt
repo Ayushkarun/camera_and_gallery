@@ -1,0 +1,58 @@
+added 3 package
+
+camera
+Provides tools to work with the cameras on the device.
+
+path_provider
+Finds the correct paths to store images.
+
+path
+Creates paths that work on any platform.
+
+For android, You must update minSdkVersion to 21 (or higher).
+
+Step 2: Get List of Available Cameras
+✅ Why this step is important:
+Before you can use any camera, you need to:
+
+Ask the system what cameras are available.
+
+Select one camera (usually rear-facing).
+
+Pass it to your app so it can create a controller for that camera.
+
+🧠 Step-by-Step Explanation:
+✅ 1. WidgetsFlutterBinding.ensureInitialized();
+ 
+WidgetsFlutterBinding.ensureInitialized();
+What it does: Initializes Flutter before doing async work in main().
+
+Why needed: You are calling an async function (availableCameras()), so Flutter must be fully set up first.
+
+If you forget this: The app will crash with an error like “Services binding not initialized”.
+
+Import camera package
+ Explanation:
+dart:io: For file saving.
+
+camera: For using the device camera.
+
+path_provider: To find folders on the device (like temp or app storage).
+
+path: Helps you manage file names and extensions.
+
+gallery_screen.dart: To show saved images in a gallery.
+
+🔹 late CameraController _cameraController;
+What it is:
+This is the main controller used to manage the camera.
+
+It's a class provided by the camera package.
+
+Why you need it:
+You use it to initialize the camera, start/stop the preview, and take pictures.
+
+You’ll pass it to CameraPreview(_cameraController) to show the live camera feed.
+
+Why late?
+Because you can't initialize it until you get the list of available cameras (asynchronously in _initializeCamera()).
