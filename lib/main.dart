@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'Screen/camera_screen.dart';
 import 'package:camera/camera.dart';
+import 'Screen/welcome_screen.dart';
 
 
 void main() async{
-  WidgetsFlutterBinding.ensureInitialized();// Makes sure Flutter is ready
-  final cameras = await availableCameras(); //Get list of available cameras
+  WidgetsFlutterBinding.ensureInitialized();
+  final cameras = await availableCameras(); 
   runApp( MyApp(cameras: cameras));
 }
 
@@ -19,7 +20,7 @@ const MyApp({Key? key, required this.cameras}) : super(key: key);
       debugShowCheckedModeBanner: false,
       theme: ThemeData.dark(),
       title: 'Camera app',
-      home: Camerascreen(cameras: cameras), 
+      home: WelcomeScreen(cameras: cameras), 
     );
   }
 }

@@ -2,11 +2,11 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'gallery_screen.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:intl/intl.dart'; // For formatting file info
-import 'package:flutter/services.dart'; // make sure this is also imported
+import 'package:intl/intl.dart';
+import 'package:flutter/services.dart'; 
 
 class FullimageScreen extends StatelessWidget {
-  final File imageFile; // this will come from tapped image
+  final File imageFile; 
   const FullimageScreen({Key? key, required this.imageFile}) : super(key: key);
 
   @override
@@ -68,7 +68,7 @@ class FullimageScreen extends StatelessWidget {
                         Navigator.pop(
                           context,
                           true,
-                        ); // Return true to indicate deletion
+                        );
                       }
                     }
                   },
@@ -97,7 +97,7 @@ class FullimageScreen extends StatelessWidget {
                       builder: (context) {
                         return AlertDialog(
                           title: Text("Image info"),
-                          content: Text("Path :${imageFile.path}\nSize:$size"),
+                          content: Text("Image saved in ${imageFile.path}\nSize:$size"),
                           actions: [
                             TextButton(
                               onPressed: () {
